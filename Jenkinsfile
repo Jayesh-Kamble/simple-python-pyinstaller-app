@@ -3,6 +3,13 @@ pipeline {
 
     stages {
 
+        stage('Setup') {
+            steps {
+                bat '"C:\\Users\\Success\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip install --upgrade pip'
+                bat '"C:\\Users\\Success\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip install pytest pyinstaller'
+            }
+        }
+
         stage('Build') {
             steps {
                 bat '"C:\\Users\\Success\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m py_compile sources\\add2vals.py sources\\calc.py'
